@@ -2,7 +2,7 @@
 
 MINTER_IDENTITY_NAME=$1
 
-DEFAULT_ACCOUNT_NAME="fastai-default-account"
+DEFAULT_ACCOUNT_NAME="swapy-default-account"
 
 DEFAULT_ACCOUNT_PRINCIPAL=$(dfx identity get-principal --identity=$DEFAULT_ACCOUNT_NAME)
 

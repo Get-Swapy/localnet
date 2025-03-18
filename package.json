@@ -1,0 +1,19 @@
+{
+  "name": "swapy-localnet",
+  "version": "0.1.0",
+  "description": "Swapy Localnet",
+  "author": "Bundly",
+  "license": "MIT",
+  "homepage": "https://github.com/Get-Swapy/localnet#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Get-Swapy/localnet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Get-Swapy/localnet/issues"
+  },
+  "scripts": {
+    "clean": "rm -rf .dfx",
+    "deploy": "sh scripts/deploy.sh"
+  }
+}
