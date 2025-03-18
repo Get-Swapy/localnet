@@ -1,0 +1,6 @@
+# Compiled output
+.dfx
+
+# .env files containing secrets or sensitive data
+.env
+.env.local
