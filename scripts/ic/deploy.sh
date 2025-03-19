@@ -1,6 +1,8 @@
 #!/bin/bash
 
-sh $PWD/scripts/core/internet_identity.sh
+sh $PWD/scripts/ic/internet_identity.sh
+
+sh $PWD/scripts/ic/evm_rpc.sh
 
 MINTER_IDENTITY_NAME="swapy-minter"
 
@@ -14,4 +16,4 @@ else
     echo "Minter Principal found: $MINTER_PRINCIPAL"
 fi
 
-sh $PWD/scripts/tokens/icp.sh $MINTER_IDENTITY_NAME
+sh $PWD/scripts/ic/icp.sh $MINTER_IDENTITY_NAME
