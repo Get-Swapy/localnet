@@ -1,8 +1,8 @@
 # Localnet for Swapy
 
-## Setup
+Swapy Localnet provides a development environment for testing and developing with both EVM-compatible chains and the Internet Computer Protocol (ICP).
 
-### Manual Setup
+## Prerequisites
 
 Ensure the following are installed on your system:
 
@@ -11,32 +11,59 @@ Ensure the following are installed on your system:
 - [Caddy](https://caddyserver.com/docs/install#install)
 - [DFX](https://internetcomputer.org/docs/current/developer-docs/build/install-upgrade-remove) `>= 0.25.0`
 
-Run these commands in a new, empty project directory:
+## Installation
 
 ```sh
 git clone https://github.com/Get-Swapy/localnet.git
 cd localnet
-npm install
+git submodule update --init --recursive
 ```
 
 ## Getting started
 
-No matter what setup you pick from below, run `npm run ic:start` from the project root to deploy the project. To understand the steps involved in deploying the `chain_fusion` locally, examine the comments in `scripts/ic/start.sh`. This script will:
+### Start the Local ICP Environment
 
-- start icp local replica
-- deploy the evm_rpc
-- deploy the chain_fusion
+This project is a complement for local develoment of Swapy. Then we assume that you have running a icp replica. If don't have it, you can use the following command:
 
-### Start Local Ethereum Node
+```bash
+dfx start --background
+```
 
-For a local development you can use Foundry, run npm run foundry:start from the project root to start the needed services. To understand the steps involved in starting foundry services, examine the comments in scripts/foundry/start.sh. This script will:
+### Start the Local Ethereum Environment
 
-- start anvil
-- start caddy
+```bash
+npm run foundry:start
+```
 
-## ICRC-1 Transfers
+### Deploy Contracts
 
-To perform transfers using ICRC-1 tokens, you can use the following script:
+```bash
+npm run deploy
+```
+
+## Working with ERC-20 Tokens
+
+Foundry uses by default following private key:
+
+0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+
+This account receive `1,000,000 ERC20` tokens once `npm run deploy` is completed.
+
+You can use the following command to check the balance of the account:
+
+```bash
+cast call 0x5FbDB2315678afecb367f032d93F642f64180aa3 "balanceOf(address)(uint256)" 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 --rpc-url http://127.0.0.1:8545
+```
+
+To perform transfers using ERC-20 tokens, you can use the following script:
+
+```bash
+cast send 0x5FbDB2315678afecb367f032d93F642f64180aa3 "transfer(address,uint256)" ADDRES_TO_TRANSFER AMOUN_TO_TRANSFER --rpc-url http://127.0.0.1:8545 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+```
+
+## Working with ICRC Tokens
+
+### Basic Transfer Format
 
 ```bash
 dfx canister call ICRC1_CANISTER_NAME icrc1_transfer "
@@ -50,7 +77,7 @@ dfx canister call ICRC1_CANISTER_NAME icrc1_transfer "
 "
 ```
 
-Here's an example of how to perform an ICRC-1 transfer:
+### Example Transfer
 
 ```bash
 dfx canister call icp_ledger icrc1_transfer "
