@@ -18,7 +18,9 @@
     "foundry:start": "sh ./scripts/foundry/start.sh",
     "foundry:stop": "sh ./scripts/foundry/stop.sh",
     "foundry:deploy": "sh ./scripts/foundry/deploy.sh",
+    "ic:start": "dfx start --background --clean",
     "ic:deploy": "sh ./scripts/ic/deploy.sh",
+    "start": "npm run foundry:start && npm run ic:start",
     "deploy": "npm run foundry:deploy && npm run ic:deploy"
   }
 }
