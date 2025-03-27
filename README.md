@@ -61,6 +61,14 @@ To perform transfers using ERC-20 tokens, you can use the following script:
 cast send 0x5FbDB2315678afecb367f032d93F642f64180aa3 "transfer(address,uint256)" ADDRES_TO_TRANSFER AMOUN_TO_TRANSFER --rpc-url http://127.0.0.1:8545 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
 ```
 
+To perform transactions on the network, your account needs to have ETH for gas fees. You can send ETH to an address using the following command:
+
+```bash
+cast send --rpc-url http://127.0.0.1:8545 \
+  --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 \
+  ADDRES_TO_TRANSFER --value AMOUN_TO_TRANSFER
+```
+
 ## Working with ICRC Tokens
 
 ### Basic Transfer Format
