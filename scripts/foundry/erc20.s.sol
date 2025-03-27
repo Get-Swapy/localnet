@@ -11,7 +11,7 @@ contract MyScript is Script {
         // we use that key to broadcast all following transactions
         vm.startBroadcast(deployerPrivateKey);
 
-        // this creates the contract. it will have the same address every time if we use a 
+        // this creates the contract. it will have the same address every time if we use a
         // new instance of anvil for every deployment.
 
         new MockERC20();
