@@ -5,7 +5,7 @@ anvil=$(lsof -t -i:8545)
 
 # Check if any Anvil PIDs were found
 if [ -z "$anvil" ]; then
-    anvil --slots-in-an-epoch 1 &
+    RUST_LOG=backend,api,node,rpc=warn anvil --slots-in-an-epoch 1 &
 else
     echo "Anvil already running."
 fi
