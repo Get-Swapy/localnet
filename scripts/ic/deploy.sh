@@ -6,7 +6,7 @@ sh $PWD/scripts/ic/evm_rpc.sh
 
 MINTER_IDENTITY_NAME="swapy-minter"
 
-# Obtener el principal de la identidad MINTER
+# Get the principal of the MINTER identity
 MINTER_PRINCIPAL=$(dfx identity get-principal --identity=$MINTER_IDENTITY_NAME)
 
 if [ -z "$MINTER_PRINCIPAL" ]; then

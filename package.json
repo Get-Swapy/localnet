@@ -13,12 +13,22 @@
     "url": "https://github.com/Get-Swapy/localnet/issues"
   },
   "scripts": {
-    "clean": "npm run foundr:clean && rm -rf .dfx",
+    "clean": "npm run foundry:clean && npm run ic:clean",
     "foundry:clean": "rm -rf cache broadcast out",
     "foundry:start": "sh ./scripts/foundry/start.sh",
     "foundry:start:debug": "sh ./scripts/foundry/start.sh -d",
     "foundry:stop": "sh ./scripts/foundry/stop.sh",
     "foundry:deploy": "sh ./scripts/foundry/deploy.sh",
-    "ic:deploy": "sh ./scripts/ic/deploy.sh"
+    "erc20:transfer": "sh ./scripts/foundry/erc20_transfer.sh",
+    "erc20:balance": "sh ./scripts/foundry/erc20_balance.sh",
+    "eth:transfer": "sh ./scripts/foundry/eth_transfer.sh",
+    "eth:balance": "sh ./scripts/foundry/eth_balance.sh",
+    "ic:clean": "rm -rf .dfx",
+    "ic:start": "dfx start --background",
+    "ic:start:clean": "dfx start --clean --background",
+    "ic:stop": "dfx stop",
+    "ic:deploy": "sh ./scripts/ic/deploy.sh",
+    "icrc:transfer": "sh ./scripts/ic/icrc_transfer.sh",
+    "icrc:balance": "sh ./scripts/ic/icrc_balance.sh"
   }
 }
